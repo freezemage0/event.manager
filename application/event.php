@@ -48,4 +48,10 @@ class Event
 	{
 		$this->errors[$code] = $message;
 	}
+	
+	public function send()
+	{
+		$manager = EventManager::getInstance();
+		$manager->callHandlers($this);
+	}
 }
